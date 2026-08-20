@@ -30,8 +30,8 @@ Ce projet est une application web vitrine interactive, responsive et optimisée 
 
 ```text
 ├── index.html         # Page principale du site
-├── style1.css         # Feuille de style CSS
-├── script1.js         # Logique JavaScript interactive
+├── style.css         # Feuille de style CSS
+├── script.js         # Logique JavaScript interactive
 └── images/            # Dossier contenant les visuels et logos
     ├── festival.jpg   # Image de fond principale
     └── ...
