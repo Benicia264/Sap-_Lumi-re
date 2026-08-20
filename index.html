@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sapé & Lumière</title>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+   
+
+</head>
+
+<body>
+    <header>
+        <h1>Sapé & Lumière</h1>
+        <button class="hamburger-btn" id="hamburger-btn" aria-label=" Ouvrir le menu">
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </button>
+        <nav class="navbar">
+            <a href="#accueil">Accueil</a>
+            <a href="#programme">Programme</a>
+            <a href="#line-up">Line-up</a>
+            <a href="#billetterie">Billetterie</a>
+            <a href="#partenaires">Partenaires</a>
+            <a href="#faq">FAQ</a>
+            <a href="#contact">Contact</a>
+
+
+
+        </nav>
+    </header>
+    <main>
+        <section id="accueil">
+            <span>FESTIVAL CULTUREL - BRAZZAVILLE</span>
+            <h2>Sapé & Lumière</h2>
+            <h3>L'élégance congolaise prend vie. </h3>
+            <p>
+                Une expérience unique où la Sape, la mode, la musique, l'art
+                et la lumière se rencontrent pour célébrer la créativité et
+                le savoir-faire congolais.
+            </p>
+
+            <div>
+                <span>Du 19 au 23 Août 2026</span>
+                <span>Brazzaville, Congo</span>
+            </div>
+
+            <div id="countdown">
+
+            </div>
+
+            <div class="button">
+                <a href="https://wa.me/242068437744?text=Bonjour%2C%20je%20souhaite%20réserver%20ma%20place%20pour%20le%20festival%20Sapé%20%26%20Lumière."
+                    target="_blank">
+                    Réserver via WhatsApp
+                </a>
+
+            </div>
+
+
+
+        </section>
+        <section id="programme">
+
+            <h2>Programme</h2>
+
+            <p>
+                Trois jours de musique, de mode, d’art et de lumière
+                au cœur de Brazzaville.
+            </p>
+
+            <div class="programme-tabs">
+
+                <button data-day="vendredi">Vendredi</button>
+                <button data-day="samedi">Samedi</button>
+                <button data-day="dimanche">Dimanche</button>
+
+            </div>
+
+            <div class="programme-content">
+
+                <div class="programme-day" data-day="vendredi">
+
+                    <h3>Vendredi</h3>
+
+                    <article class="event">
+                        <time>14h00</time>
+                        <div>
+                            <h4>Ouverture du festival</h4>
+                            <p>Accueil des participants</p>
+                        </div>
+                    </article>
+
+                    <article class="event">
+                        <time>15h00</time>
+                        <div>
+                            <h4>Exposition « Art & Lumière »</h4>
+                            <p>Découverte des créations artistiques</p>
+                        </div>
+                    </article>
+
+                    <article class="event">
+                        <time>17h00</time>
+                        <div>
+                            <h4>Rencontre autour de la Sape</h4>
+                            <p>Échange autour de la mode et de la culture congolaise</p>
+                        </div>
+                    </article>
+
+                    <article class="event">
+                        <time>19h00</time>
+                        <div>
+                            <h4>Défilé de mode</h4>
+                            <p>La Sape sous les projecteurs</p>
+                        </div>
+                    </article>
+
+                    <article class="event">
+                        <time>21h00</time>
+                        <div>
+                            <h4>Concert d'ouverture</h4>
+                            <p>Une soirée musicale pour lancer le festival</p>
+                        </div>
+                    </article>
+
+                </div>
+                <div class="programme-day" data-day="samedi">
+
+                    <h3>Samedi</h3>
+
+                    <article class="event">
+                        <time>10h00</time>
+                        <div>
+                            <h4>Ouverture des espaces</h4>
+                            <p>Accueil des festivaliers</p>
+                        </div>
+                    </article>
+
+                    <article class="event">
+                        <time>11h00</time>
+                        <div>
+                            <h4>Atelier découverte de la Sape</h4>
+                            <p>Immersion dans l'univers de la mode congolaise</p>
+                        </div>
+                    </article>
+
+                    <article class="event">
+                        <time>14h00</time>
+                        <div>
+                            <h4>Showcase musical</h4>
+                            <p>Performance live</p>
+                        </div>
+                    </article>
+
+                    <article class="event">
+                        <time>16h00</time>
+                        <div>
+                            <h4>Grand défilé Sapé & Lumière</h4>
+                            <p>La Sape sous les projecteurs</p>
+                        </div>
+                    </article>
+
+                    <article class="event">
+                        <time>21h00</time>
+                        <div>
+                            <h4>Concert principal</h4>
+                            <p>Une soirée musicale exceptionnelle</p>
+                        </div>
+                    </article>
+
+                </div>
+                <div class="programme-day" data-day="dimanche">
+
+                    <h3>Dimanche</h3>
+
+                    <article class="event">
+                        <time>10h00</time>
+                        <div>
+                            <h4>Ouverture</h4>
+                            <p>Accueil des festivaliers</p>
+                        </div>
+                    </article>
+
+                    <article class="event">
+                        <time>11h00</time>
+                        <div>
+                            <h4>Brunch culturel</h4>
+                            <p>Un moment de partage autour de la culture congolaise</p>
+                        </div>
+                    </article>
+
+                    <article class="event">
+                        <time>14h00</time>
+                        <div>
+                            <h4>Table ronde</h4>
+                            <p>Mode et culture congolaise</p>
+                        </div>
+                    </article>
+
+                    <article class="event">
+                        <time>18h00</time>
+                        <div>
+                            <h4>Défilé de clôture</h4>
+                            <p>Une dernière célébration de l'élégance congolaise</p>
+                        </div>
+                    </article>
+
+                    <article class="event">
+                        <time>20h00</time>
+                        <div>
+                            <h4>Concert de clôture</h4>
+                            <p>Une dernière soirée pour terminer le festival en beauté</p>
+                        </div>
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+        <section id="line-up">
+
+            <h2>Line-up</h2>
+
+            <p>
+                Découvrez les artistes et créateurs qui feront vibrer le festival.
+            </p>
+            <div class="line-up-filters">
+                <button class="filter-btn active" data-filter="all">Tous</button>
+                <button class="filter-btn" data-filter="musique">Musique</button>
+                <button class="filter-btn" data-filter="mode-sape">Mode & Sape</button>
+                <button class="filter-btn" data-filter="art-lumière">Art Lumière</button>
+            </div>
+
+            <div class="line-up-grid">
+
+                <article class="artist-card" data-category="musique">
+                    <img src="images/fally.jpg" alt="Fally Ipupa" width="200" height="200">
+                    <h3>Fally Ipupa</h3>
+                    <p>Genre musical</p>
+
+                </article>
+                <article class="artist-card" data-category="mode-sape">
+                    <img src="images/eric.jpg" alt="Eric MABIALA" width="200" height="200">
+                    <h3>Eric MABIALA</h3>
+                    <p>Mode et design</p>
+                </article>
+
+                <article class="artist-card" data-category="art-lumière">
+                    <img src="images/catherine.jpg" alt="Catherine MABIALA" width="200" height="200">
+                    <h3>Catherine MABIALA</h3>
+                    <p>Art visuel</p>
+                </article>
+
+                <article class="artist-card" data-category="musique">
+                    <img src="images/chily.jpg" alt="Chily" width="200" height="200">
+                    <h3>Chily</h3>
+                    <p>Genre musical</p>
+
+                </article>
+
+                <article class="artist-card" data-category="mode-sape">
+                    <img src="images/sapeur.jpg" alt="Sapeur mode" width="200" height="200">
+                    <h3>Les frères MAVOUNGOU</h3>
+                    <p>Mode et design</p>
+                </article>
+
+
+                <article class="artist-card" data-category="art-lumière">
+                    <img src="images/bella.jpg" alt="Bella MAMBOUNGOU" width="200" height="200">
+                    <h3>Bella MAMBOUNGOU</h3>
+                    <p>Art visuel</p>
+                </article>
+
+            </div>
+
+        </section>
+        <section id="billetterie">
+            <h2>Billetterie</h2>
+            <p>Choisissez votre pass et réservez directement via whatsApp</p>
+            <div class="tickets">
+                <article class="ticket">
+                    <h3>Pass 1 Jour</h3>
+                    <p>Accès à toutes les activités du jour choisi</p>
+                    <p class="price">Prix: 2500fcfa</p>
+                    <a href="https://wa.me/242068437744?text=Bonjour%2C%20je%20souhaite%20réserver%20un%20pass%201%20jour."
+                        target="_blank">Réserver
+                        via whatsApp</a>
+                </article>
+
+                <article class="ticket">
+                    <h3>Pass 3 Jours</h3>
+                    <p>Accès à toutes les activités pendant les 3 jours du festival</p>
+                    <p class="price">Prix: 6000fcfa</p>
+                    <a href="https://wa.me/242068437744?text=Bonjour%2C%20je%20souhaite%20réserver%20un%20pass%203%20jours."
+                        target="_blank">Réserver
+                        via whatsApp</a>
+                </article>
+            </div>
+
+        </section>
+        <section id="partenaires">
+
+            <h2>Nos partenaires</h2>
+
+            <p>
+                Merci à nos partenaires pour leur soutien
+                à cette célébration de la culture congolaise.
+            </p>
+
+            <div class="partners-list">
+
+                <div class="partner">
+                    <img src="images/akieni.png" alt="Akieni logo">
+                </div>
+
+                <div class="partner">
+                    <img src="images/mtn.png" alt="MTN Congo">
+                </div>
+
+                <div class="partner">
+                    <img src="images/buroto.png" alt="Burotop Iris">
+                </div>
+
+                <div class="partner">
+                    <img src="images/vival.png" alt="Vival">
+                </div>
+
+            </div>
+
+        </section>
+        <section id="faq">
+
+            <h2>Questions fréquentes</h2>
+
+            <div class="faq-container">
+
+                <details class="faq-item">
+                    <summary class="faq-question">Quel est l'âge minimum pour participer ?</summary>
+                    <div class="faq-answer">
+                        <p>
+                            Le festival est ouvert à tous. L'entrée est gratuite pour les enfants de moins de 10 ans,
+                            mais les mineurs de moins de 16 ans doivent être obligatoirement accompagnés d'un adulte.
+                        </p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary class="faq-question">Peut-on manger sur place ?</summary>
+                    <div class="faq-answer">
+                        <p>
+                            Oui, plusieurs stands de street food locale, boissons et spécialités congolaises seront
+                            installés tout au long du festival pour régaler les festivaliers.
+                        </p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary class="faq-question">Y a-t-il un parking ?</summary>
+                    <div class="faq-answer">
+                        <p>
+                            Un espace de stationnement sécurisé et surveillé est disponible à proximité immédiate de la
+                            Place de la République.
+                        </p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary class="faq-question">Que se passe-t-il en cas de pluie ?</summary>
+                    <div class="faq-answer">
+                        <p>
+                            Le festival dispose d'espaces couverts et de chapiteaux spécialement aménagés pour
+                            accueillir les concerts et les défilés sans interruption, même en cas d'intempéries.
+                        </p>
+                    </div>
+                </details>
+
+            </div>
+
+        </section>
+        <section id="contact">
+
+            <h2>Contactez-nous</h2>
+
+            <p>
+                Une question sur le festival ? Écrivez-nous.
+            </p>
+
+            <form id="contact-form">
+
+                <div class="form-group">
+                    <label for="name">Nom</label>
+                    <input type="text" id="name" name="name" placeholder="Votre nom">
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Téléphone</label>
+                    <input type="tel" id="phone" name="phone" placeholder="Votre numéro de téléphone">
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" placeholder="Votre message" rows="5"></textarea>
+                </div>
+
+                <p id="form-message"></p>
+
+                <button type="submit">
+                    Envoyer
+                </button>
+
+            </form>
+
+        </section>
+
+
+    </main>
+    <footer>
+
+        <div class="footer-content">
+
+            <h2>Sapé & Lumière</h2>
+
+            <p>
+                L’élégance congolaise prend vie.
+            </p>
+
+            <nav class="footer-nav">
+                <a href="#accueil">Accueil</a>
+                <a href="#programme">Programme</a>
+                <a href="#line-up">Line-up</a>
+                <a href="#billetterie">Billetterie</a>
+                <a href="#partenaires">Partenaires</a>
+                <a href="#faq">FAQ</a>
+                <a href="#contact">Contact</a>
+            </nav>
+
+            <div class="footer-socials">
+                <a href="#">Instagram</a>
+                <a href="#">Facebook</a>
+                <a href="#">WhatsApp</a>
+            </div>
+
+            <p class="copyright">
+                © 2026 Sapé & Lumière. Tous droits réservés.
+            </p>
+
+        </div>
+
+    </footer>
+
+</body>
+
+</html>
