@@ -136,7 +136,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1.1rem clamp(1.5rem, 5vw, 3rem);
+  padding: 1.1rem max(1.5rem, calc((100% - var(--container)) / 2));
   background: rgba(32, 15, 12, 0.85);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
