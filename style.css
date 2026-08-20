@@ -1,7 +1,4 @@
-
-
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Work+Sans:wght@300;400;500;600;700&display=swap');
-
 
 :root {
   /* Couleurs — palette "sapeur" : bordeaux chaud, or, émeraude, magenta */
@@ -30,15 +27,22 @@
   --shadow-btn: 0 12px 24px -10px rgba(201, 162, 39, 0.45);
 
   --container: 1180px;
+  --side-pad: clamp(1.5rem, 5vw, 4rem);
   --section-pad: clamp(4rem, 8vw, 7rem);
 }
 
 /* --------------------------------------------------------------------------
    RESET & BASE
    -------------------------------------------------------------------------- */
-*, *::before, *::after { box-sizing: border-box; }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   margin: 0;
@@ -50,11 +54,20 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-img { max-width: 100%; display: block; }
+img {
+  max-width: 100%;
+  display: block;
+}
 
-a { color: inherit; text-decoration: none; }
+a {
+  color: inherit;
+  text-decoration: none;
+}
 
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   font-family: var(--ff-display);
   color: var(--cream);
   margin: 0 0 0.5em;
@@ -62,7 +75,10 @@ h1, h2, h3, h4 {
   letter-spacing: -0.01em;
 }
 
-p { margin: 0 0 1em; color: var(--cream-dim); }
+p {
+  margin: 0 0 1em;
+  color: var(--cream-dim);
+}
 
 button {
   font-family: inherit;
@@ -74,24 +90,23 @@ button {
 
 section {
   position: relative;
-  padding: var(--section-pad) clamp(1.5rem, 5vw, 4rem);
+  padding: var(--section-pad) var(--side-pad);
   max-width: var(--container);
   margin: 0 auto;
 }
 
-
-main > section:not(:last-child)::after {
+/* Signature — point de bâti doré entre chaque section, comme une couture de
+   tailleur. Discret, répété, cohérent : la trace du sapeur sur toute la page. */
+main>section:not(:last-child)::after {
   content: "";
   position: absolute;
   left: 8%;
   right: 8%;
   bottom: 0;
   height: 1px;
-  background-image: repeating-linear-gradient(
-    90deg,
-    var(--gold-dim) 0 10px,
-    transparent 10px 20px
-  );
+  background-image: repeating-linear-gradient(90deg,
+      var(--gold-dim) 0 10px,
+      transparent 10px 20px);
   opacity: 0.55;
   transform: rotate(-0.4deg);
 }
@@ -104,7 +119,10 @@ main > section:not(:last-child)::after {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
+
+  *,
+  *::before,
+  *::after {
     animation-duration: 0.001ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
@@ -112,7 +130,8 @@ main > section:not(:last-child)::after {
   }
 }
 
-.eyebrow, #accueil > span {
+.eyebrow,
+#accueil>span {
   display: inline-block;
   font-family: var(--ff-body);
   font-size: 0.72rem;
@@ -136,7 +155,9 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1.1rem max(1.5rem, calc((100% - var(--container)) / 2));
+  /* Remplace l'ancien padding par un padding fixe à gauche et à droite */
+  padding: 1.1rem 1rem;
+  width: 100%;
   background: rgba(32, 15, 12, 0.85);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
@@ -185,9 +206,14 @@ header h1 {
 }
 
 .navbar a:hover,
-.navbar a:focus-visible { color: var(--cream); }
+.navbar a:focus-visible {
+  color: var(--cream);
+}
+
 .navbar a:hover::after,
-.navbar a:focus-visible::after { transform: scaleX(1); }
+.navbar a:focus-visible::after {
+  transform: scaleX(1);
+}
 
 .hamburger-btn {
   display: none;
@@ -208,13 +234,24 @@ header h1 {
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
+/* Suppose que script1.js bascule une classe "active" sur le bouton et le nav
+   au clic — adapte les sélecteurs ci-dessous si ton JS utilise un autre nom */
+.hamburger-btn.active span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
 
-.hamburger-btn.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-.hamburger-btn.active span:nth-child(2) { opacity: 0; }
-.hamburger-btn.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.hamburger-btn.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-btn.active span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
 
 @media (max-width: 860px) {
-  .hamburger-btn { display: flex; }
+  .hamburger-btn {
+    display: flex;
+  }
 
   .navbar {
     position: fixed;
@@ -233,14 +270,29 @@ header h1 {
     transition: transform 0.35s ease;
   }
 
-  .navbar.active { transform: translateX(0); }
+  .navbar.active {
+    transform: translateX(0);
+  }
 }
 
 /* --------------------------------------------------------------------------
    HERO — #accueil
-  
+   Image de fond : dossier "images", fichier "festival" — adapte l'extension
+   (.jpg / .png / .webp) selon ton fichier réel.
    -------------------------------------------------------------------------- */
 #accueil {
+
+  max-width: 100% !important;
+  /* Force la section à prendre 100% de l'écran */
+  width: 100%;
+  padding-left: clamp(1.5rem, 5vw, 4rem);
+  /* Réajuste si tu veux aligner le texte interne */
+  padding-right: clamp(1.5rem, 5vw, 4rem);
+  margin: 0;
+  border-radius: 0;
+  /* Enlève les arrondis si la section en avait */
+
+
   min-height: 88vh;
   display: flex;
   flex-direction: column;
@@ -249,16 +301,23 @@ header h1 {
   text-align: left;
   padding-top: clamp(3rem, 8vw, 5rem);
   padding-bottom: clamp(3rem, 8vw, 5rem);
-  background-image:
-    radial-gradient(circle at 50% 0%, rgba(201, 162, 39, 0.22), transparent 55%),
+  background-image: radial-gradient(circle at 50% 0%, rgba(201, 162, 39, 0.22), transparent 55%),
     linear-gradient(180deg, rgba(32, 15, 12, 0.55) 0%, rgba(32, 15, 12, 0.94) 88%),
     url("images/festival.jpg");
-  background-size: cover, cover, cover;
-  background-position: center, center, center;
-  background-repeat: no-repeat, no-repeat, no-repeat;
+  background-size: cover,
+    cover,
+    cover;
+  background-position: center,
+    center,
+    center;
+  background-repeat: no-repeat,
+    no-repeat,
+    no-repeat;
 }
 
-#accueil > span { margin-bottom: 1.4rem; }
+#accueil>span {
+  margin-bottom: 1.4rem;
+}
 
 #accueil h2 {
   font-size: clamp(2.6rem, 6.5vw, 5rem);
@@ -277,20 +336,20 @@ header h1 {
   margin-bottom: 1.2rem;
 }
 
-#accueil > p {
+#accueil>p {
   max-width: 46ch;
   font-size: 1.05rem;
   color: var(--cream-dim);
 }
 
-#accueil > div:not(.button) {
+#accueil>div:not(.button) {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5em 1.4em;
   margin: 1.6rem 0;
 }
 
-#accueil > div:not(.button):not(#countdown) span {
+#accueil>div:not(.button):not(#countdown) span {
   font-size: 0.85rem;
   letter-spacing: 0.04em;
   color: var(--cream);
@@ -299,7 +358,7 @@ header h1 {
   position: relative;
 }
 
-#accueil > div:not(.button):not(#countdown) span::before {
+#accueil>div:not(.button):not(#countdown) span::before {
   content: "";
   position: absolute;
   left: 0;
@@ -317,7 +376,7 @@ header h1 {
   margin: 1.8rem 0;
 }
 
-#countdown > * {
+#countdown>* {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -368,14 +427,17 @@ header h1 {
   border-radius: var(--radius-l);
 }
 
-#programme > h2, #programme > p {
+#programme>h2,
+#programme>p {
   text-align: center;
   max-width: 60ch;
   margin-left: auto;
   margin-right: auto;
 }
 
-#programme > p { margin-bottom: 2.5rem; }
+#programme>p {
+  margin-bottom: 2.5rem;
+}
 
 .programme-tabs {
   display: flex;
@@ -397,7 +459,10 @@ header h1 {
   transition: all 0.25s ease;
 }
 
-.programme-tabs button:hover { color: var(--cream); border-color: var(--gold-light); }
+.programme-tabs button:hover {
+  color: var(--cream);
+  border-color: var(--gold-light);
+}
 
 .programme-tabs button.active {
   background: var(--gold);
@@ -405,8 +470,13 @@ header h1 {
   border-color: var(--gold);
 }
 
-.programme-day { display: none; }
-.programme-day.active { display: block; }
+.programme-day {
+  display: none;
+}
+
+.programme-day.active {
+  display: block;
+}
 
 .programme-day h3 {
   text-align: center;
@@ -450,20 +520,30 @@ header h1 {
   font-size: 0.95rem;
 }
 
-.event h4 { font-size: 1.05rem; margin-bottom: 0.2em; }
-.event p { margin-bottom: 0; font-size: 0.92rem; }
+.event h4 {
+  font-size: 1.05rem;
+  margin-bottom: 0.2em;
+}
+
+.event p {
+  margin-bottom: 0;
+  font-size: 0.92rem;
+}
 
 /* --------------------------------------------------------------------------
    LINE-UP
    -------------------------------------------------------------------------- */
-#line-up > h2, #line-up > p {
+#line-up>h2,
+#line-up>p {
   text-align: center;
   max-width: 60ch;
   margin-left: auto;
   margin-right: auto;
 }
 
-#line-up > p { margin-bottom: 2.2rem; }
+#line-up>p {
+  margin-bottom: 2.2rem;
+}
 
 .line-up-filters {
   display: flex;
@@ -485,7 +565,10 @@ header h1 {
   transition: all 0.25s ease;
 }
 
-.filter-btn:hover { color: var(--cream); border-color: var(--gold-light); }
+.filter-btn:hover {
+  color: var(--cream);
+  border-color: var(--gold-light);
+}
 
 .filter-btn.active {
   background: var(--emerald);
@@ -509,7 +592,10 @@ header h1 {
   transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
-.artist-card:hover { transform: translateY(-6px); border-color: var(--gold-light); }
+.artist-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--gold-light);
+}
 
 /* Photos non arrondies — cadre rectangulaire net, comme une photo de presse */
 .artist-card img {
@@ -521,7 +607,10 @@ header h1 {
   border: 2px solid var(--gold);
 }
 
-.artist-card h3 { font-size: 1.05rem; margin-bottom: 0.3em; }
+.artist-card h3 {
+  font-size: 1.05rem;
+  margin-bottom: 0.3em;
+}
 
 .artist-card p {
   font-size: 0.78rem;
@@ -531,20 +620,28 @@ header h1 {
   margin-bottom: 0;
 }
 
-.artist-card[data-category="musique"] img { border-color: var(--magenta-light); }
-.artist-card[data-category="art-lumière"] img { border-color: var(--emerald-light); }
+.artist-card[data-category="musique"] img {
+  border-color: var(--magenta-light);
+}
+
+.artist-card[data-category="art-lumière"] img {
+  border-color: var(--emerald-light);
+}
 
 /* --------------------------------------------------------------------------
    BILLETTERIE
    -------------------------------------------------------------------------- */
-#billetterie > h2, #billetterie > p {
+#billetterie>h2,
+#billetterie>p {
   text-align: center;
   max-width: 60ch;
   margin-left: auto;
   margin-right: auto;
 }
 
-#billetterie > p { margin-bottom: 2.5rem; }
+#billetterie>p {
+  margin-bottom: 2.5rem;
+}
 
 .tickets {
   display: grid;
@@ -564,9 +661,14 @@ header h1 {
   transition: transform 0.3s ease;
 }
 
-.ticket:hover { transform: translateY(-6px); }
+.ticket:hover {
+  transform: translateY(-6px);
+}
 
-.ticket h3 { font-size: 1.3rem; color: var(--gold-light); }
+.ticket h3 {
+  font-size: 1.3rem;
+  color: var(--gold-light);
+}
 
 .ticket .price {
   font-family: var(--ff-display);
@@ -585,7 +687,10 @@ header h1 {
   text-align: center;
 }
 
-#partenaires > p { max-width: 55ch; margin: 0 auto 2.4rem; }
+#partenaires>p {
+  max-width: 55ch;
+  margin: 0 auto 2.4rem;
+}
 
 .partners-list {
   display: flex;
@@ -610,7 +715,10 @@ header h1 {
 /* --------------------------------------------------------------------------
    FAQ
    -------------------------------------------------------------------------- */
-#faq > h2 { text-align: center; margin-bottom: 2.2rem; }
+#faq>h2 {
+  text-align: center;
+  margin-bottom: 2.2rem;
+}
 
 .faq-container {
   max-width: 720px;
@@ -636,7 +744,9 @@ header h1 {
   color: var(--cream);
 }
 
-.faq-question::-webkit-details-marker { display: none; }
+.faq-question::-webkit-details-marker {
+  display: none;
+}
 
 .faq-question::after {
   content: "+";
@@ -647,18 +757,34 @@ header h1 {
   flex-shrink: 0;
 }
 
-.faq-item[open] .faq-question::after { transform: rotate(45deg); }
+.faq-item[open] .faq-question::after {
+  transform: rotate(45deg);
+}
 
-.faq-answer { padding-top: 0.9rem; }
-.faq-answer p { font-size: 0.94rem; margin-bottom: 0; }
+.faq-answer {
+  padding-top: 0.9rem;
+}
+
+.faq-answer p {
+  font-size: 0.94rem;
+  margin-bottom: 0;
+}
 
 /* --------------------------------------------------------------------------
    CONTACT
    -------------------------------------------------------------------------- */
-#contact { max-width: 640px; }
+#contact {
+  max-width: 640px;
+}
 
-#contact > h2 { text-align: center; }
-#contact > p { text-align: center; margin-bottom: 2.4rem; }
+#contact>h2 {
+  text-align: center;
+}
+
+#contact>p {
+  text-align: center;
+  margin-bottom: 2.4rem;
+}
 
 #contact-form {
   background: var(--ink-2);
@@ -667,7 +793,11 @@ header h1 {
   padding: clamp(1.8rem, 4vw, 2.8rem);
 }
 
-.form-group { margin-bottom: 1.6rem; display: flex; flex-direction: column; }
+.form-group {
+  margin-bottom: 1.6rem;
+  display: flex;
+  flex-direction: column;
+}
 
 .form-group label {
   font-size: 0.78rem;
@@ -691,7 +821,9 @@ header h1 {
 }
 
 .form-group input::placeholder,
-.form-group textarea::placeholder { color: rgba(244, 238, 221, 0.35); }
+.form-group textarea::placeholder {
+  color: rgba(244, 238, 221, 0.35);
+}
 
 .form-group input:focus,
 .form-group textarea:focus {
@@ -699,9 +831,17 @@ header h1 {
   border-bottom-color: var(--gold-light);
 }
 
-#form-message { font-size: 0.88rem; color: var(--emerald-light); min-height: 1.2em; }
+#form-message {
+  font-size: 0.88rem;
+  color: var(--emerald-light);
+  min-height: 1.2em;
+}
 
-#contact-form button[type="submit"] { width: 100%; margin-top: 0.6rem; border: none; }
+#contact-form button[type="submit"] {
+  width: 100%;
+  margin-top: 0.6rem;
+  border: none;
+}
 
 /* --------------------------------------------------------------------------
    FOOTER
@@ -712,7 +852,11 @@ footer {
   padding: clamp(3rem, 6vw, 4.5rem) clamp(1.5rem, 5vw, 3rem) 2.2rem;
 }
 
-.footer-content { max-width: var(--container); margin: 0 auto; text-align: center; }
+.footer-content {
+  max-width: var(--container);
+  margin: 0 auto;
+  text-align: center;
+}
 
 .footer-content h2 {
   font-size: 1.6rem;
@@ -722,7 +866,7 @@ footer {
   color: transparent;
 }
 
-.footer-content > p {
+.footer-content>p {
   font-style: italic;
   color: var(--gold-light);
   margin-bottom: 2rem;
@@ -745,9 +889,16 @@ footer {
   transition: color 0.25s ease;
 }
 
-.footer-nav a:hover { color: var(--gold-light); }
+.footer-nav a:hover {
+  color: var(--gold-light);
+}
 
-.footer-socials { display: flex; justify-content: center; gap: 2rem; margin-bottom: 1.6rem; }
+.footer-socials {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 1.6rem;
+}
 
 .footer-socials a {
   position: relative;
@@ -770,17 +921,38 @@ footer {
   transition: transform 0.3s ease;
 }
 
-.footer-socials a:hover::after { transform: scaleX(1); }
+.footer-socials a:hover::after {
+  transform: scaleX(1);
+}
 
-.copyright { font-size: 0.75rem; color: rgba(220, 201, 181, 0.55); margin: 0; }
+.copyright {
+  font-size: 0.75rem;
+  color: rgba(220, 201, 181, 0.55);
+  margin: 0;
+}
 
 /* --------------------------------------------------------------------------
    RESPONSIVE
    -------------------------------------------------------------------------- */
 @media (max-width: 640px) {
-  section { padding-left: 1.2rem; padding-right: 1.2rem; }
-  #accueil { text-align: left; }
-  .event { grid-template-columns: 4.4em 1fr; }
-  .tickets { grid-template-columns: 1fr; }
-  #countdown { flex-wrap: wrap; }
+  section {
+    padding-left: 1.2rem;
+    padding-right: 1.2rem;
+  }
+
+  #accueil {
+    text-align: left;
+  }
+
+  .event {
+    grid-template-columns: 4.4em 1fr;
+  }
+
+  .tickets {
+    grid-template-columns: 1fr;
+  }
+
+  #countdown {
+    flex-wrap: wrap;
+  }
 }
