@@ -32,12 +32,18 @@
 }
 
 /* --------------------------------------------------------------------------
-   RESET & BASE
+   RESET & BASE (Bloque le scroll horizontal et l'espace vide à droite)
    -------------------------------------------------------------------------- */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden; /* Empêche tout défilement vers la droite */
 }
 
 html {
@@ -95,8 +101,6 @@ section {
   margin: 0 auto;
 }
 
-/* Signature — point de bâti doré entre chaque section, comme une couture de
-   tailleur. Discret, répété, cohérent : la trace du sapeur sur toute la page. */
 main>section:not(:last-child)::after {
   content: "";
   position: absolute;
@@ -111,7 +115,6 @@ main>section:not(:last-child)::after {
   transform: rotate(-0.4deg);
 }
 
-/* Focus visible partout — accessibilité */
 :focus-visible {
   outline: 2px solid var(--gold-light);
   outline-offset: 3px;
@@ -119,7 +122,6 @@ main>section:not(:last-child)::after {
 }
 
 @media (prefers-reduced-motion: reduce) {
-
   *,
   *::before,
   *::after {
@@ -155,7 +157,6 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* Remplace l'ancien padding par un padding fixe à gauche et à droite */
   padding: 1.1rem 1rem;
   width: 100%;
   background: rgba(32, 15, 12, 0.85);
@@ -222,7 +223,7 @@ header h1 {
   gap: 5px;
   width: 32px;
   height: 32px;
-  z-index: 110;
+  z-index: 1100; /* Rehaussé pour rester au-dessus du menu ouvert */
 }
 
 .hamburger-btn span {
@@ -234,8 +235,6 @@ header h1 {
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-/* Suppose que script1.js bascule une classe "active" sur le bouton et le nav
-   au clic — adapte les sélecteurs ci-dessous si ton JS utilise un autre nom */
 .hamburger-btn.active span:nth-child(1) {
   transform: translateY(7px) rotate(45deg);
 }
@@ -248,51 +247,16 @@ header h1 {
   transform: translateY(-7px) rotate(-45deg);
 }
 
-@media (max-width: 860px) {
-  .hamburger-btn {
-    display: flex;
-  }
-
-  .navbar {
-    position: fixed;
-    top: 0;
-    right: 0;
-    height: 100vh;
-    width: min(78vw, 320px);
-    background: var(--ink-2);
-    border-left: 1px solid rgba(201, 162, 39, 0.25);
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    gap: 1.6rem;
-    padding: 2rem;
-    transform: translateX(100%);
-    transition: transform 0.35s ease;
-  }
-
-  .navbar.active {
-    transform: translateX(0);
-  }
-}
-
 /* --------------------------------------------------------------------------
    HERO — #accueil
-   Image de fond : dossier "images", fichier "festival" — adapte l'extension
-   (.jpg / .png / .webp) selon ton fichier réel.
    -------------------------------------------------------------------------- */
 #accueil {
-
   max-width: 100% !important;
-  /* Force la section à prendre 100% de l'écran */
   width: 100%;
   padding-left: clamp(1.5rem, 5vw, 4rem);
-  /* Réajuste si tu veux aligner le texte interne */
   padding-right: clamp(1.5rem, 5vw, 4rem);
   margin: 0;
   border-radius: 0;
-  /* Enlève les arrondis si la section en avait */
-
-
   min-height: 88vh;
   display: flex;
   flex-direction: column;
@@ -304,15 +268,9 @@ header h1 {
   background-image: radial-gradient(circle at 50% 0%, rgba(201, 162, 39, 0.22), transparent 55%),
     linear-gradient(180deg, rgba(32, 15, 12, 0.55) 0%, rgba(32, 15, 12, 0.94) 88%),
     url("images/festival.jpg");
-  background-size: cover,
-    cover,
-    cover;
-  background-position: center,
-    center,
-    center;
-  background-repeat: no-repeat,
-    no-repeat,
-    no-repeat;
+  background-size: cover, cover, cover;
+  background-position: center, center, center;
+  background-repeat: no-repeat, no-repeat, no-repeat;
 }
 
 #accueil>span {
@@ -597,7 +555,6 @@ header h1 {
   border-color: var(--gold-light);
 }
 
-/* Photos non arrondies — cadre rectangulaire net, comme une photo de presse */
 .artist-card img {
   width: 100%;
   aspect-ratio: 4 / 5;
@@ -932,8 +889,46 @@ footer {
 }
 
 /* --------------------------------------------------------------------------
-   RESPONSIVE
+   RESPONSIVE & MENU MOBILE
    -------------------------------------------------------------------------- */
+@media (max-width: 860px) {
+  .hamburger-btn {
+    display: flex;
+  }
+
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: var(--ink-2);
+    border-left: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.8rem;
+    padding: 2rem;
+
+    /* Masqué totalement hors écran sans faire déborder la page */
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 1000;
+  }
+
+  .navbar.active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .navbar a {
+    font-size: 1.1rem;
+  }
+}
+
 @media (max-width: 640px) {
   section {
     padding-left: 1.2rem;
